@@ -1,7 +1,7 @@
 var bodyParser = require('body-parser');
 var express = require('express');
-var Controller = require("/Users/Sfigaman/NODEJS/project/public/src/controllers/controller.js");
-var User = require("/Users/Sfigaman/NODEJS/project/public/src/models/user.js").user();
+var Controller = require(__dirname + "/public/src/controllers/controller.js");
+var User = require(__dirname + "/public/src/models/user.js").user();
 var mongoose = require('mongoose');
 var cookieSession = require('cookie-session');
 var result = '';

@@ -3,7 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var cron = require("node-cron");
-var Routes = require("/Users/Sfigaman/NODEJS/project/routes.js");
+var Routes = require(__dirname + "/routes.js");
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/test', {

@@ -1,5 +1,5 @@
-var Product = require("/Users/Sfigaman/NODEJS/project/public/src/models/product.js").product();
-var User = require("/Users/Sfigaman/NODEJS/project/public/src/models/user.js").user();
+var Product = require("./../models/product.js").product();
+var User = require("./../models/user.js").user();
 var mongoose = require('mongoose');
 var CryptoJS = require("crypto-js");
 var nodemailer = require('nodemailer');
