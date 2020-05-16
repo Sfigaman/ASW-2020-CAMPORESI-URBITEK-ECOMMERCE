@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <link rel='stylesheet' href='css/tableStyle.css' type='text/css' />
+</head>
+
+<body>
+    <div id="cart-app">
+        <user-navbar></user-navbar>
+
+    <div style="padding-left:16px">
+        <h2>CARRELLO</h2>
+        <p>Questa è la pagina CARRELLO del sito!</p>
+    </div>
+    
+    <div style="overflow-x:auto;" v-cloak>
+        
+        <div style="padding-left:16px">
+            <h2>Sconto Utente: {{ userDiscount }} %</h2>
+        </div>
+        
+      <table>
+        <tr>
+          <th>Codice</th>
+          <th>Nome</th>
+          <th>Prezzo Unitario</th>
+          <th>Quantità</th>
+          <th>Totale</th>
+          <th>Sconto</th>
+          <th>Totale Scontato</th>
+          <th>Rimozione da Carrello</th>
+        </tr>
+        <tr v-for="element in cart">
+            <td>{{ element.productId}}</td>
+            <td>{{ element.productName}}</td>
+            <td>{{ element.price}} ‎€</td>
+            <td>{{ element.quantity}}</td>
+            <td>{{ element.quantity * element.price}} €</td>
+            <td><a>{{ userDiscount }}%</a><a v-if="element.discount > 0"> + {{ element.discount }}%</a></td>
+            <td>{{ (element.price * element.quantity)-((element.price * element.quantity)*(element.discount + userDiscount))/100}} €</td>
+            <td><button class="tableCart" href="#" @click.prevent="removeFromCart(element)" style="width:auto;">Rimuovi dal Carrello</button></td>
+        </tr>
+      </table>
+      
+      <div style="padding-left:16px">
+          <h2>Totale: {{ total }} €</h2>
+          <button v-if="!empty" @click="confirmOrder" class="confButton" href="#" style="width:auto;">Conferma</button>
+      </div>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/cartScript.js"></script>
+</body>
+</html>
+
+

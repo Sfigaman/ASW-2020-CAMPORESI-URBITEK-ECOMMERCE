@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='css/loginStyle.css' type='text/css' />
+</head>
+
+<body>
+
+    <div style="padding-left:16px">
+    <h2>Login Catalogo URBITEK</h2>
+    <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
+    <a href="#" onClick="guest()" style="width:auto;">Accesso Guest</a>
+    </div>
+    <div id="logins-app">
+    <div id="id01" class="modal">
+        <form @submit.prevent="loginToApp" class="modal-content" action="/login" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <img src="/res/img_avatar2.png" alt="Avatar" class="avatar">
+            </div>
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input id="username" type="text" placeholder="Enter Username" name="username" required>
+                <label for="password"><b>Password</b></label>
+                <input id="password" type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Login</button>
+            </div>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div style="padding-left:16px; padding-top:20px">
+        <h2>Non sei ancora iscritto?</h2>
+        <h2>Richiedi subito un account!</h2>
+        <div>
+        <label for="Name">Richiedente:</label>
+        <input v-model="Name" placeholder="Nome e Cognome..."> </input>
+        </div>
+        <div>
+        <label for="Company">Azienda:</label>
+        <input v-model="Company" placeholder="Azienda..."> </input>
+        </div>
+        <div>
+        <label for="Mail">Indirizzo Mail:</label>
+        <input v-model="Mail" placeholder="Mail..."> </input>
+        </div>
+        <div>
+        <label for="Phone">Telefono:</label>
+        <input v-model="Phone" placeholder="Telefono..."> </input>
+        </div>
+        <button @click="requestAccount" class="confButton" href="#" style="width:auto;">Conferma</button>
+    </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/loginScript.js"></script>
+</body>
+</html>
+
+

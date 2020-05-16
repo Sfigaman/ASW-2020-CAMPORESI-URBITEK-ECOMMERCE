@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/css/style.css' type='text/css' />
+    <link rel='stylesheet' href='/css/formStyle.css' type='text/css' />
+</head>
+
+<body>
+<div id="admins-app">
+    <admin-navbar></admin-navbar>
+    <div style="padding-left:16px">
+        <h2>ACCOUNT</h2>
+        <p>Questa è la pagina di gestione degli ACCOUNT del sito!</p>
+    </div>
+    
+    <h2 style="padding-left:16px">Creazione Account</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per creare un nuovo Account!</p>
+
+    <div class="container">
+      <form @submit.prevent="createUser" action="/createUserQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="username">USERNAME</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userUsernameCreate" name="username" placeholder="USERNAME...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="password">PASSWORD</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="password" v-model="userPasswordCreate" name="password" placeholder="PASSWORD...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Nome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userNameCreate" name="name" placeholder="Nome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="surname">Cognome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userSurnameCreate" name="surname" placeholder="Cognome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="company">Azienda</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userCompanyCreate" name="company" placeholder="Azienda...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="mail">Mail</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userMailCreate" name="mail" placeholder="Mail...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="phone">Telefono</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userPhoneCreate" name="phone" placeholder="Telefono...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="discount">Sconto</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userDiscountCreate" name="discount" placeholder="Sconto...">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="role">Ruolo</label>
+          </div>
+          <div class="col-75">
+            <select v-model="userRoleCreate" name="role">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Creazione">
+        </div>
+      </form>
+    </div>
+    
+    <h2 style="padding-left:16px">Modifica Account</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per MODIFICARE un Account!</p>
+
+    <div class="container">
+      <form @submit.prevent="modifyUser" action="/modifyUserQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="username">USERNAME</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userUsernameModify" name="username" placeholder="USERNAME...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="password">PASSWORD</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="password" v-model="userPasswordModify" name="password" placeholder="PASSWORD...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Nome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userNameModify" name="name" placeholder="Nome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="surname">Cognome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userSurnameModify" name="surname" placeholder="Cognome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="company">Azienda</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userCompanyModify" name="company" placeholder="Azienda...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="mail">Mail</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userMailModify" name="mail" placeholder="Mail...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="phone">Telefono</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userPhoneModify" name="phone" placeholder="Telefono...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="discount">Sconto</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userDiscountModify" name="discount" placeholder="Sconto...">
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+    
+    <h2 style="padding-left:16px">Eliminazione Account</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per ELIMINARE un Account!</p>
+
+    <div class="container">
+      <form @submit.prevent="deleteUser" action="/deleteUserQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="username">USERNAME</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="userUsernameDelete" name="username" placeholder="USERNAME...">
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/adminsScript.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <link rel='stylesheet' href='/css/formStyle.css' type='text/css' />
+</head>
+
+<body>
+<div id="admins-app">
+    <admin-navbar></admin-navbar>
+    <div style="padding-left:16px">
+        <h2>PRODOTTI</h2>
+        <p>Questa è la pagina di gestione dei PRODOTTI del sito!</p>
+    </div>
+    
+    <h2 style="padding-left:16px">Creazione Prodotto</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per creare un nuovo Prodotto!</p>
+
+    <div class="container">
+      <form @submit.prevent="createProduct" action="/createProductQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="code">Codice</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productCodeCreate" name="code" placeholder="Codice...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Nome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productNameCreate" name="name" placeholder="Nome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="description">Descrizione</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productDescriptionCreate" name="description" placeholder="Descrizione...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="price">Prezzo</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productPriceCreate" name="price" placeholder="Prezzo...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="discount">Sconto</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productDiscountCreate" name="discount" placeholder="Sconto...">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="type">Tipologia</label>
+          </div>
+          <div class="col-75">
+            <select v-model="productTypeCreate" name="type">
+              <option value="parcometri">Parcometri</option>
+              <option value="parcheggi">Parcheggi</option>
+              <option value="riparazioni">Riparazioni</option>
+              <option value="consumabili">Consumabili</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Creazione">
+        </div>
+      </form>
+    </div>
+    
+    <h2 style="padding-left:16px">Modifica Prodotto</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per MODIFICARE un Prodotto!</p>
+
+    <div class="container">
+      <form @submit.prevent="modifyProduct" action="/modifyProductQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="code">Codice</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productCodeModify" name="code" placeholder="Codice...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Nome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productNameModify" name="name" placeholder="Nome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="description">Descrizione</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productDescriptionModify" name="description" placeholder="Descrizione...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="price">Prezzo</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productPriceModify" name="price" placeholder="Prezzo...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="discount">Sconto</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productDiscountModify" name="discount" placeholder="Sconto...">
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+    
+    <h2 style="padding-left:16px">Eliminazione Prodotto</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per ELIMINARE un Prodotto!</p>
+
+    <div class="container">
+      <form @submit.prevent="deleteProduct" action="/deleteProductQuery" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="code">Codice</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="productCodeDelete" name="code" placeholder="Codice...">
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/adminsScript.js"></script>
+</body>
+</html>
+
+

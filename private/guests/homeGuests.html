@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+</head>
+
+<body>
+    <div id="guest-app">
+        <guest-navbar></guest-navbar>
+
+    <div style="padding-left:16px">
+        <h2>HOME</h2>
+        <p>Questa è la HOME del sito!</p>
+        <p id="test">Benvenuto, GUEST</p>
+    </div>
+    
+    <div>
+    <div style="padding-left:16px; padding-top:20px">
+        <h2>Non sei ancora iscritto?</h2>
+        <h2>Richiedi subito un account!</h2>
+        <div>
+        <label for="Name">Richiedente:</label>
+        <input v-model="Name" placeholder="Nome e Cognome..."> </input>
+        </div>
+        <div>
+        <label for="Company">Azienda:</label>
+        <input v-model="Company" placeholder="Azienda..."> </input>
+        </div>
+        <div>
+        <label for="Mail">Indirizzo Mail:</label>
+        <input v-model="Mail" placeholder="Mail..."> </input>
+        </div>
+        <div>
+        <label for="Phone">Telefono:</label>
+        <input v-model="Phone" placeholder="Telefono..."> </input>
+        </div>
+        <button @click="requestAccount" class="confButton" href="#" style="width:auto;">Conferma</button>
+    </div>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/guestHomeScript.js"></script>
+</body>
+</html>
+
+

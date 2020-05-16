@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/css/style.css' type='text/css' />
+    <link rel='stylesheet' href='/css/formStyle.css' type='text/css' />
+</head>
+
+<body>
+    <div id="users-app">
+        <user-navbar></user-navbar>
+
+    <div style="padding-left:16px">
+        <h2>ACCOUNT</h2>
+        <p>Questa è la pagina ACCOUNT del sito!</p>
+    </div>
+    
+    <h2 style="padding-left:16px">Modifica Account</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per MODIFICARE il tuo Account!</p>
+<div>
+    <div class="container">
+      <form @submit.prevent="modifyFields" action="/modifyByUserQuery" method="post">
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Nome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="name" name="name" placeholder="Nome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="surname">Cognome</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="surname" name="surname" placeholder="Cognome...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="company">Azienda</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="company" name="company" placeholder="Azienda...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="mail">Mail</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="mail" name="mail" placeholder="Mail...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="phone">Telefono</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" v-model="phone" name="phone" placeholder="Telefono...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+    
+    <h2 style="padding-left:16px">Modifica Password</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per MODIFICARE la tua PASSWORD!</p>
+
+    <div id="users-app" class="container">
+      <form @submit.prevent="modifyPassword" action="/modifyByUserQuery" method="post">
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="password">Password</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="password" v-model="password" name="password" placeholder="Password...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="confirmation">Conferma Password</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="password" v-model="confirmation" name="confirmation" placeholder="Conferma Password...">
+          </div>
+        </div>
+        
+        <div class="row">
+          <input type="submit" value="Conferma">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/usersVueScript.js"></script>
+</body>
+</html>
+
+

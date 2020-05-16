@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+</head>
+
+<body>
+    <div id="home-app">
+        <user-navbar></user-navbar>
+
+    <div style="padding-left:16px">
+        <h2>HOME</h2>
+        <p>Questa è la HOME del sito!</p>
+        <p id="test">Benvenuto, USER</p>
+    </div>
+    
+    <div style="padding-left:16px" v-cloak>
+        <div style="padding-top: 40px">
+            <p><strong>Username: </strong>{{ user.username}}</p>
+            <p><strong>Nome: </strong>{{ user.name}}</p>
+            <p><strong>Cognome: </strong>{{ user.surname}}</p>
+            <p><strong>Azienda: </strong>{{ user.company}}</p>
+            <p><strong>Mail: </strong>{{ user.mail}}</p>
+            <p><strong>Telefono: </strong>{{ user.phone}}</p>
+            <p><strong>Sconto Dedicato: </strong>{{ user.discount}} %</p>
+        </div>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/homeScript.js"></script>
+</body>
+</html>
+
+

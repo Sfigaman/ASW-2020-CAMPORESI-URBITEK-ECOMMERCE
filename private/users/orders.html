@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+</head>
+
+<body>
+    <div id="orders-app">
+        <user-navbar></user-navbar>
+
+    <div style="padding-left:16px">
+        <h2>ORDINI</h2>
+        <p>Questa è la pagina ORDINI del sito!</p>
+    </div>
+    
+    <div style="padding-left:16px" v-cloak>
+        <div v-for="element in orders" style="padding-top: 40px">
+            <p><strong>Data: {{ element.date}}</strong></p>
+            <div v-for="product in element.products">
+                <p><strong>Codice: </strong>{{ product.productId}} | <strong>Prodotto: </strong>{{ product.productName}} | <strong>Quantità: </strong>{{ product.quantity}} | <strong>Prezzo: </strong>{{ (product.price * product.quantity)-((product.price * product.quantity)*(product.discount + element.discount)) / 100}} ‎€</p>
+            </div>
+            <p><strong>Totale: {{ getTotal(element) }} €</strong></p>
+        </div>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/ordersScript.js"></script>
+</body>
+</html>
+
+

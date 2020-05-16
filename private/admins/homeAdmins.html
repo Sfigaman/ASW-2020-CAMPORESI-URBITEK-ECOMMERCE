@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <link rel='stylesheet' href='/css/formStyle.css' type='text/css' />
+</head>
+
+<body>
+    <div id="home-app">
+        <admin-navbar></admin-navbar>
+    <div style="padding-left:16px">
+        <h2>HOME</h2>
+        <p>Questa è la HOME del sito!</p>
+        <p id="test">Benvenuto, ADMIN</p>
+    </div>
+    
+    <div style="padding-left:16px" v-cloak>
+        <div style="padding-top: 40px">
+            <p><strong>Username: </strong>{{ user.username}}</p>
+            <p><strong>Nome: </strong>{{ user.name}}</p>
+            <p><strong>Cognome: </strong>{{ user.surname}}</p>
+            <p><strong>Azienda: </strong>{{ user.company}}</p>
+            <p><strong>Mail: </strong>{{ user.mail}}</p>
+            <p><strong>Telefono: </strong>{{ user.phone}}</p>
+        </div>
+    </div>
+    
+    <h2 style="padding-left:16px">Ricerca Account</h2>
+    <p style="padding-left:16px">Utilizza la Form sottostante per cercare un Account!</p>
+    
+    <div class="container">
+      <form action="/ricercaAccount" method="get">
+        <div class="row">
+          <div class="col-25">
+            <label for="username">USERNAME</label>
+          </div>
+          <div class="col-75">
+            <input class="inputText" type="text" id="username" name="username" placeholder="USERNAME...">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="role">Ruolo</label>
+          </div>
+          <div class="col-75">
+            <select id="role" name="role">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="guest">Guest</option>
+                <option value="all">Tutti</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Ricerca">
+        </div>
+      </form>
+    </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/src/scripts/usersScript.js"></script>
+    <script src="/src/scripts/homeScript.js"></script>
+</body>
+</html>
+
+
