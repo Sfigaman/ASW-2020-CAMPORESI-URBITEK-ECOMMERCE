@@ -12,7 +12,8 @@ var UserSchema = new Schema({
         role: String,
         discount: Number,
         orders: [{ date: {type: Date, default: Date.now}, discount: Number, products: [{ productId: String, productName: String, quantity: Number, price: Number, discount: Number, _id: false }], _id: false }],
-        cart: [{ productId: String, productName: String, quantity: Number, price: Number, discount: Number, _id: false }]
+        cart: [{ productId: String, productName: String, quantity: Number, price: Number, discount: Number, _id: false }],
+        favorites: [{ productId: String, productName: String, quantity: Number, price: Number, discount: Number, _id: false }]
 }, { versionKey: false });
 var User = mongoose.model('User', UserSchema);
 

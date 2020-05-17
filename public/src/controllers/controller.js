@@ -35,24 +35,31 @@ exports.view_products = function(req, res) {
 
 // Creazione Prodotto
 exports.create_product = function(req, res) {
-    var new_product = new Product();
-    var price = 0;
-    var discount = 0;
-    if (req.body.price !== undefined) {
-        price = price + req.body.price * 1;
-    }
-    if (req.body.discount !== undefined) {
-        discount = discount + req.body.discount * 1;
-    }
-    new_product.code = req.body.code;
-    new_product.name = req.body.name;
-    new_product.description = req.body.description;
-    new_product.price = price;
-    new_product.discount = discount;
-    new_product.type = req.body.type;
-    new_product.save(function(err, product) {
+    Product.find({code: req.body.code}, function(err, result) {
         if (err) { res.send(err); }
-        res.json({ message: 'Product Successfully Created' });
+        if (!result.length) {
+            var new_product = new Product();
+            var price = 0;
+            var discount = 0;
+            if (req.body.price !== undefined) {
+                price = price + req.body.price * 1;
+            }
+            if (req.body.discount !== undefined) {
+                discount = discount + req.body.discount * 1;
+            }
+            new_product.code = req.body.code;
+            new_product.name = req.body.name;
+            new_product.description = req.body.description;
+            new_product.price = price;
+            new_product.discount = discount;
+            new_product.type = req.body.type;
+            new_product.save(function(err, product) {
+                if (err) { res.send(err); }
+                res.json({ message: 'Product Successfully Created' });
+            });
+        } else {
+            res.json({ message: 'Product ID Already Taken!' });
+        }
     });
 }
 
@@ -76,6 +83,23 @@ exports.delete_product = function(req, res) {
                                 User.updateOne({
                                 username: user.username
                                 }, { $pull: { cart: {
+                                    productId: req.body.code,
+                                    productName: name,
+                                    price: price,
+                                    discount: discount,
+                                    quantity: quantity
+                                }}}, function(err, user) {});
+                            }
+                        });
+                        user.favorites.forEach(function(item) {
+                            if (item.productId == req.body.code) {
+                                var quantity = item.quantity * 1;
+                                var price = item.price * 1;
+                                var discount = item.discount * 1;
+                                var name = item.productName;
+                                User.updateOne({
+                                username: user.username
+                                }, { $pull: { favorites: {
                                     productId: req.body.code,
                                     productName: name,
                                     price: price,
@@ -137,6 +161,32 @@ exports.modify_product = function(req, res) {
                                 User.updateOne({
                                 username: user.username
                                 }, { $push: { cart: {
+                                    productId: req.body.code,
+                                    productName: name,
+                                    price: price,
+                                    discount: discount,
+                                    quantity: quantity
+                                }}}, function(err, user) {});
+                            }
+                        });
+                        user.favorites.forEach(function(item) {
+                            if (item.productId == req.body.code) {
+                                var quantity = item.quantity * 1;
+                                var price = product.price * 1;
+                                var discount = product.discount * 1;
+                                var name = product.name;
+                                User.updateOne({
+                                username: user.username
+                                }, { $pull: { favorites: {
+                                    productId: req.body.code,
+                                    productName: item.productName,
+                                    price: item.price,
+                                    discount: item.discount,
+                                    quantity: item.quantity
+                                }}}, function(err, user) {});
+                                User.updateOne({
+                                username: user.username
+                                }, { $push: { favorites: {
                                     productId: req.body.code,
                                     productName: name,
                                     price: price,
@@ -218,28 +268,35 @@ exports.find_user = function(req, res) {
 
 // Creazione Utente
 exports.create_user = function(req, res) {
-    var new_user = new User();
-    var phone = 0;
-    var discount = 0;
-    var password = CryptoJS.MD5(req.body.password);
-    new_user.username = req.body.username;
-    new_user.password = password;
-    new_user.name = req.body.name;
-    new_user.surname = req.body.surname;
-    new_user.company = req.body.company;
-    new_user.mail = req.body.mail;
-    if (req.body.phone !== undefined) {
-        phone = phone + req.body.phone * 1;
-    }
-    new_user.phone = phone;
-    new_user.role = req.body.role;
-    if (req.body.discount !== undefined) {
-        discount = discount + req.body.discount * 1;
-    }
-    new_user.discount = discount;
-    new_user.save(function(err, user) {
+    User.find({username: req.body.username}, function (err, result) {
         if (err) { res.send(err); }
-        res.json({ message: 'User Successfully Created' });
+        if (!result.length) {
+            var new_user = new User();
+            var phone = 0;
+            var discount = 0;
+            var password = CryptoJS.MD5(req.body.password);
+            new_user.username = req.body.username;
+            new_user.password = password;
+            new_user.name = req.body.name;
+            new_user.surname = req.body.surname;
+            new_user.company = req.body.company;
+            new_user.mail = req.body.mail;
+            if (req.body.phone !== undefined) {
+                phone = phone + req.body.phone * 1;
+            }
+            new_user.phone = phone;
+            new_user.role = req.body.role;
+            if (req.body.discount !== undefined) {
+                discount = discount + req.body.discount * 1;
+            }
+            new_user.discount = discount;
+            new_user.save(function(err, user) {
+                if (err) { res.send(err); }
+                res.json({ message: 'User Successfully Created' });
+            });
+        } else {
+            res.json({ message: 'User USERNAME Already Taken!' });
+        }
     });
 }
 
@@ -412,6 +469,73 @@ exports.modify_cart = function(req, res) {
     }
 }
 
+exports.modify_favorites = function(req, res) {
+    if (req.body.mode == "insert") {
+        var quantity = req.body.quantity * 1;
+        var price = req.body.price * 1;
+        var discount = req.body.discount * 1;
+        User.findOne({username: req.session.username}, function(err, user) {
+            if (err) { res.send(err); }
+            var updated = 0;
+            user.favorites.forEach(function(item) {
+                if (item.productId == req.body.productId) {
+                    var name = item.productName;
+                    var newQuantity = quantity + item.quantity * 1;
+                    updated++;
+                    User.updateOne({
+                    username: user.username
+                    }, { $pull: { favorites: {
+                        productId: req.body.productId,
+                        productName: item.productName,
+                        price: item.price,
+                        discount: item.discount,
+                        quantity: item.quantity
+                    }}}, function(err, user) {});
+                    User.updateOne({
+                    username: user.username
+                    }, { $push: { favorites: {
+                        productId: req.body.productId,
+                        productName: name,
+                        price: price,
+                        discount: discount,
+                        quantity: newQuantity
+                    }}}, function(err, user) {});
+                }
+            });
+            if (updated === 0) {
+                User.updateOne({
+                    username: req.session.username
+                }, { $push: { favorites: {
+                    productId: req.body.productId,
+                    productName: req.body.productName,
+                    price: price,
+                    discount: discount,
+                    quantity: quantity
+                }}}, function(err, user) {
+                    if (err) { res.send(err); }
+                    res.status(201).json(user);
+                });
+            }
+        });
+    } else {
+        var quantity = req.body.quantity * 1;
+        var price = req.body.price * 1;
+        var discount = req.body.discount * 1;
+        User.updateOne({
+            username: req.session.username
+        }, { $pull: { favorites: {
+            productId: req.body.productId,
+            productName: req.body.productName,
+            price: price,
+            discount: discount,
+            quantity: quantity
+        }}}, function(err, user) {
+            if (err) { res.send(err); }
+            res.status(201).json(user);
+        });
+    }
+}
+
 exports.request_account = function(req, res) {
     
     //TEST
@@ -517,6 +641,21 @@ exports.create_order = function(req, res) {
             console.log('Email sent: ' + info.response);
           }
         });
+            if (user.role == 'user') {
+                var mailOptions = {
+                  from: 'ordini.urbitek@gmail.com',
+                to: user.mail,
+                  subject: oggetto,
+                  text: stringa
+                };
+                transporter.sendMail(mailOptions, function(error, info){
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log('Email sent: ' + info.response);
+                  }
+                });
+            }
     });
     
     // Cancellazione Carrello

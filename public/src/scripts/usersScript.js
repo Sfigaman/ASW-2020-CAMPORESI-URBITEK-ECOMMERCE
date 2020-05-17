@@ -13,9 +13,10 @@ Vue.component('user-navbar', {
   template: `<div class="topnav" id="myTopnav">
       <a href="/home" class="active">Home</a>
       <a href="/account">Account</a>
+      <a class="exit" href="/">Esci</a>
       <a href="/orders">Ordini</a>
+      <a href="/favorites">Preferiti</a>
       <a href="/cart">Carrello</a>
-      <a href="/">Esci</a>
       <div class="dropdown">
           <button class="dropbtn" id="dropButton">Tutti i Prodotti
               <i class="fa fa-caret-down"></i>
@@ -42,8 +43,8 @@ Vue.component('user-navbar', {
 Vue.component('guest-navbar', {
   template: `<div class="topnav" id="myTopnav">
       <a href="/homeGuests" class="active">Home</a>
+      <a class="exit" href="/">Esci</a>
       <a href="/cartGuests">Carrello</a>
-      <a href="/">Esci</a>
       <div class="dropdown">
           <button class="dropbtn" id="dropButton">Tutti i Prodotti
               <i class="fa fa-caret-down"></i>
@@ -71,8 +72,8 @@ Vue.component('admin-navbar', {
   template: `<div class="topnav" id="myTopnav">
       <a href="/homeAdmins" class="active">Home</a>
       <a href="/accountAdmins">Account</a>
+      <a class="exit" href="/">Esci</a>
       <a href="/products">Prodotti</a>
-      <a href="/">Esci</a>
       <div class="dropdown">
           <button class="dropbtn" id="dropButton">Tutti i Prodotti
               <i class="fa fa-caret-down"></i>

@@ -24,6 +24,7 @@
                 <th>Prezzo</th>
                 <th>Sconto</th>
                 <th>Prezzo Scontato</th>
+                <th>Aggiunta a Preferiti</th>
                 <th>Aggiunta a Carrello</th>
               </tr>
               <tr v-for="product in productsDiscounted" :key="products._id">
@@ -33,6 +34,7 @@
                   <td>{{ product.price}} €</td>
                   <td>{{ product.discount}} %</td>
                   <td>{{ product.price - (product.price * product.discount) / 100}} €</td>
+                  <td><button class="tableCart" href="#" @click.prevent="addToFavorites(product)" style="width:auto;">Aggiungi ai Preferiti</button></td>
                   <td><button class="tableCart" href="#" @click.prevent="addToCart(product)" style="width:auto;">Aggiungi al Carrello</button></td>
               </tr>
             </table>
@@ -43,6 +45,7 @@
           <th>Nome</th>
           <th>Descrizione</th>
           <th>Prezzo</th>
+          <th>Aggiunta a Preferiti</th>
           <th>Aggiunta a Carrello</th>
         </tr>
         <tr v-for="product in productsNoDiscount" :key="products._id">
@@ -50,6 +53,7 @@
             <td>{{ product.name}}</td>
             <td>{{ product.description}}</td>
             <td>{{ product.price}} €</td>
+            <td><button class="tableCart" href="#" @click.prevent="addToFavorites(product)" style="width:auto;">Aggiungi ai Preferiti</button></td>
             <td><button class="tableCart" href="#" @click.prevent="addToCart(product)" style="width:auto;">Aggiungi al Carrello</button></td>
         </tr>
       </table>

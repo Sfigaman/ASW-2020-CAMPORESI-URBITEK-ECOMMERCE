@@ -50,6 +50,11 @@ body {
     color: white;
 }
 
+.exit {
+    background-color: #ff0000;
+    color: white;
+}
+
 .topnav .icon {
     display: none;
 }

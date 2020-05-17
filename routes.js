@@ -180,6 +180,16 @@ exports.setup = function(app) {
             res.status(404).send('Ops... SESSIONE TERMINATA');
         }
     });
+    
+    app.get('/favorites', function(req, res) {
+        if (!req.session.isNew){
+            req.session.lastPage = 'favorites';
+            res.sendFile(__dirname + '/private/users/favorites.html');
+        } else {
+            res.setHeader('Content-Type', 'text/plain');
+            res.status(404).send('Ops... SESSIONE TERMINATA');
+        }
+    });
 
     app.get('/products', function(req, res) {
         if (!req.session.isNew){
@@ -270,6 +280,7 @@ exports.setup = function(app) {
     app.route('/findOrdersQuery').post(Controller.find_orders);
     app.route('/findUserQuery').post(Controller.find_user);
     app.route('/requestAccount').post(Controller.request_account);
+    app.route('/favoritesQuery').post(Controller.modify_favorites);
     
     // FINE ROUTE DB
 

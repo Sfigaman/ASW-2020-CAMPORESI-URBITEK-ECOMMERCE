@@ -60,6 +60,28 @@ var app = new Vue({
                 alert("Prodotto " + product.code + " Aggiunto al Carrello con Quantità " + number);
             }
         },
+        addToFavorites: function(product) {
+            var number;
+            var productCode = product.code;
+            var productName = product.name;
+            var productPrice = product.price * 1;
+            var productDiscount = product.discount * 1;
+            var box = prompt("Quantità da Aggiungere:", "1");
+            if (box !== null && box !== "" && box !== 0) {
+                number = box * 1;
+                axios.post('/favoritesQuery', {
+                    mode: 'insert',
+                    productId: productCode,
+                    productName: productName,
+                    quantity: number,
+                    price: productPrice,
+                    discount: productDiscount
+                }).then(response => {}).catch(function (error) {
+                    console.log(error);
+                });
+                alert("Prodotto " + product.code + " Aggiunto ai Preferiti con Quantità " + number);
+            }
+        },
         init: function(){
             this.listProducts();
         },

@@ -34,26 +34,33 @@ data: {
 },
     methods: {
         createProduct: function () {
-            axios.post('/createProductQuery', {
-            code: this.productCodeCreate,
-            name: this.productNameCreate,
-            description: this.productDescriptionCreate,
-            price: this.productPriceCreate,
-            discount: this.productDiscountCreate,
-            type: this.productTypeCreate
-            }).then(response => {
-                var stringArray = JSON.stringify(response).split("\"");
-                alert(stringArray[5]);
-                socket.emit('message', 'Un Nuovo Prodotto è stato Creato!');
-                this.productCodeCreate = '';
-                this.productNameCreate = '';
-                this.productDescriptionCreate = '';
-                this.productPriceCreate = '';
-                this.productDiscountCreate = '';
-                this.productTypeCreate = '';
-            }).catch(function (error) {
-              console.log(error);
-            });
+            if (this.productCodeCreate !== '' && this.productNameCreate !== '' && this.productPriceCreate !== '' && this.productTypeCreate !== '') {
+                axios.post('/createProductQuery', {
+                code: this.productCodeCreate,
+                name: this.productNameCreate,
+                description: this.productDescriptionCreate,
+                price: this.productPriceCreate,
+                discount: this.productDiscountCreate,
+                type: this.productTypeCreate
+                }).then(response => {
+                    var stringArray = JSON.stringify(response).split("\"");
+                    var stringa = stringArray[5];
+                    alert(stringa);
+                    if (!stringa.includes('Taken')) {
+                        socket.emit('message', 'Un Nuovo Prodotto è stato Creato!');
+                    }
+                    this.productCodeCreate = '';
+                    this.productNameCreate = '';
+                    this.productDescriptionCreate = '';
+                    this.productPriceCreate = '';
+                    this.productDiscountCreate = '';
+                    this.productTypeCreate = '';
+                }).catch(function (error) {
+                  console.log(error);
+                });
+            } else {
+                alert('Compilare i Campi: CODICE, NOME, PREZZO e TIPO');
+            }
         },
         modifyProduct: function () {
             axios.post('/modifyProductQuery', {
@@ -92,31 +99,35 @@ data: {
             });
         },
         createUser: function () {
-            axios.post('/createUserQuery', {
-            username: this.userUsernameCreate,
-            password: this.userPasswordCreate,
-            name: this.userNameCreate,
-            surname: this.userSurnameCreate,
-            company: this.userCompanyCreate,
-            mail: this.userMailCreate,
-            phone: this.userPhoneCreate,
-            discount: this.userDiscountCreate,
-            role: this.userRoleCreate
-            }).then(response => {
-                var stringArray = JSON.stringify(response).split("\"");
-                alert(stringArray[5]);
-                this.userPasswordCreate = '';
-                this.userNameCreate = '';
-                this.userSurnameCreate = '';
-                this.userCompanyCreate = '';
-                this.userMailCreate = '';
-                this.userPhoneCreate = '';
-                this.userDiscountCreate = '';
-                this.userRoleCreate = '';
-                this.userUsernameCreate = '';
-            }).catch(function (error) {
-              console.log(error);
-            });
+            if (this.userUsernameCreate !== '' && this.userPasswordCreate !== '' && this.userNameCreate !== '' && this.userSurnameCreate !== '' && this.userCompanyCreate !== '' && this.userMailCreate !== '' && this.userRoleCreate !== '') {
+                axios.post('/createUserQuery', {
+                username: this.userUsernameCreate,
+                password: this.userPasswordCreate,
+                name: this.userNameCreate,
+                surname: this.userSurnameCreate,
+                company: this.userCompanyCreate,
+                mail: this.userMailCreate,
+                phone: this.userPhoneCreate,
+                discount: this.userDiscountCreate,
+                role: this.userRoleCreate
+                }).then(response => {
+                    var stringArray = JSON.stringify(response).split("\"");
+                    alert(stringArray[5]);
+                    this.userPasswordCreate = '';
+                    this.userNameCreate = '';
+                    this.userSurnameCreate = '';
+                    this.userCompanyCreate = '';
+                    this.userMailCreate = '';
+                    this.userPhoneCreate = '';
+                    this.userDiscountCreate = '';
+                    this.userRoleCreate = '';
+                    this.userUsernameCreate = '';
+                }).catch(function (error) {
+                  console.log(error);
+                });
+            } else {
+                alert('Compilare i Campi: USERNAME, PASSWORD, NOME, COGNOME, AZIENDA, MAIL e RUOLO');
+            }
         },
         modifyUser: function () {
             axios.post('/modifyUserQuery', {
