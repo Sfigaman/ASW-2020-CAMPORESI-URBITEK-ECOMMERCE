@@ -61,8 +61,7 @@ exports.setup = function(app) {
                                 res.setHeader('Content-Type', 'text/plain');
                                 res.status(200).send('LOGIN OK');
                             } else {
-                                res.setHeader('Content-Type', 'text/plain');
-                                res.status(202).send('Ops... SESSIONE TERMINATA');
+                                res.status(202).sendFile(__dirname + '/private/timeout.html');
                             }
                         }
                     });
@@ -73,8 +72,7 @@ exports.setup = function(app) {
                         res.setHeader('Content-Type', 'text/plain');
                         res.status(201).send('LOGIN OK');
                     } else {
-                        res.setHeader('Content-Type', 'text/plain');
-                        res.status(202).send('Ops... SESSIONE TERMINATA');
+                        res.status(202).sendFile(__dirname + '/private/timeout.html');
                     }
                 }
         });
@@ -111,8 +109,7 @@ exports.setup = function(app) {
                     req.session.lastPage = 'home';
                     res.sendFile(__dirname + '/private/guests/homeGuests.html');
                 } else {
-                    res.setHeader('Content-Type', 'text/plain');
-                    res.status(404).send('Ops... SESSIONE TERMINATA');
+                    res.status(404).sendFile(__dirname + '/private/timeout.html');
                 }
             }
         });
@@ -123,8 +120,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'home';
             res.sendFile(__dirname + '/private/users/home.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     })
     
@@ -134,8 +130,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'home';
             res.sendFile(__dirname + '/private/guests/homeGuests.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -144,8 +139,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'home';
             res.sendFile(__dirname + '/private/admins/homeAdmins.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -155,8 +149,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'account';
             res.sendFile(__dirname + '/private/users/account.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -165,8 +158,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'account';
             res.sendFile(__dirname + '/private/admins/accountAdmins.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -176,8 +168,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'orders';
             res.sendFile(__dirname + '/private/users/orders.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
     
@@ -186,8 +177,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'favorites';
             res.sendFile(__dirname + '/private/users/favorites.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -196,8 +186,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'products';
             res.sendFile(__dirname + '/private/admins/products.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -207,8 +196,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'cart';
             res.sendFile(__dirname + '/private/users/cart.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -218,8 +206,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'cart';
             res.sendFile(__dirname + '/private/guests/cartGuests.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
     
@@ -228,8 +215,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'ricerca';
             res.sendFile(__dirname + '/private/users/ricercaUsers.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
     
@@ -238,8 +224,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'ricerca';
             res.sendFile(__dirname + '/private/guests/ricercaGuests.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
     
@@ -248,8 +233,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'ricerca';
             res.sendFile(__dirname + '/private/admins/ricercaAdmins.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
     
@@ -258,8 +242,7 @@ exports.setup = function(app) {
             req.session.lastPage = 'ricercaAccount';
             res.sendFile(__dirname + '/private/admins/ricercaAccount.html');
         } else {
-            res.setHeader('Content-Type', 'text/plain');
-            res.status(404).send('Ops... SESSIONE TERMINATA');
+            res.status(404).sendFile(__dirname + '/private/timeout.html');
         }
     });
 
@@ -286,7 +269,6 @@ exports.setup = function(app) {
 
     app.use(express.static('public'));
     app.use(function (req, res, next) {
-        res.setHeader('Content-Type', 'text/plain');
-        res.status(404).send('Ops... Pagina Non Trovata');
+        res.status(404).sendFile(__dirname + '/private/404.html');
     });
 }
