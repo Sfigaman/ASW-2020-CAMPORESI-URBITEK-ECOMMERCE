@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5e91868683bb7f03eeff4d90"},"code":"4040015","name":"Selettore Monete","price":650,"discount":20,"type":"parcometri","description":"Selettore Monete Varioflex / Stelio / Strada"}
+{"_id":{"$oid":"5e9186de83bb7f03eeff4d93"},"code":"1010015","name":"Lettore LEF","description":"Lettore Varioflex","price":1000,"discount":0,"type":"parcheggi"}
+{"_id":{"$oid":"5e91fc60373f690687c7b1b9"},"code":"400123400","name":"Lettore CCS","description":"Lettore CCS Varioflex","price":1200,"discount":0,"type":"parcheggi"}
+{"_id":{"$oid":"5ea97ca1882b710e1d91d9ee"},"code":"4001","name":"Alimentatore Ventilato","description":"Varioflex","price":900,"discount":20,"type":"parcheggi"}
+{"_id":{"$oid":"5ea97cd6882b710e1d91d9ef"},"code":"4002","name":"Scheda Principale","description":"Varioflex","price":1200,"discount":0,"type":"parcheggi"}
+{"_id":{"$oid":"5ea97cf5882b710e1d91d9f0"},"code":"1001","name":"Stampante","description":"Stelio / Strada","price":600,"discount":0,"type":"parcometri"}
+{"_id":{"$oid":"5ea97d65882b710e1d91d9f1"},"code":"1002","name":"Preincasso","description":"Stelio","price":500,"discount":20,"type":"parcometri"}
+{"_id":{"$oid":"5ed7fc684767dd06449af7e4"},"code":"123456","name":"Rotolo Biglietti","description":"Stelio","price":30,"discount":0,"type":"consumabili"}
+{"_id":{"$oid":"5ed7fc914767dd06449af7e5"},"code":"987","name":"Cartuccia Stampante","description":"Per Lettori LEF","price":40,"discount":0,"type":"consumabili"}
+{"_id":{"$oid":"5ed7fcc24767dd06449af7e6"},"code":"4020054","name":"Riparazione Lettore LEF","description":"Riparazione e Pulizia","price":600,"discount":0,"type":"riparazioni"}

@@ -1,0 +1,67 @@
+{"_id":{"$oid":"5e988eb1b6418f255266084e"},"orders":[],"cart":[],"username":"GUEST66","role":"guest"}
+{"_id":{"$oid":"5e9890f6b6418f255266084f"},"orders":[],"cart":[],"username":"GUEST47","role":"guest"}
+{"_id":{"$oid":"5e98930bb6418f2552660850"},"orders":[],"cart":[],"username":"GUEST43","role":"guest"}
+{"_id":{"$oid":"5e989379b6418f2552660851"},"orders":[],"cart":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":6}],"username":"GUEST9","role":"guest"}
+{"_id":{"$oid":"5e989425b6418f2552660852"},"orders":[],"cart":[],"username":"GUEST22","role":"guest"}
+{"_id":{"$oid":"5e98963ac283f525a6a376eb"},"orders":[],"cart":[],"username":"GUEST45","role":"guest"}
+{"_id":{"$oid":"5e98a00088e3af25d685c475"},"orders":[],"cart":[],"username":"GUEST80","role":"guest"}
+{"_id":{"$oid":"5e98a87440454c26307949cb"},"orders":[],"cart":[],"username":"GUEST7","role":"guest"}
+{"_id":{"$oid":"5e98aeff1546eb266a7a15fc"},"orders":[],"cart":[],"username":"GUEST63","role":"guest"}
+{"_id":{"$oid":"5e98af8b1546eb266a7a15fd"},"orders":[],"cart":[],"username":"GUEST23","role":"guest"}
+{"_id":{"$oid":"5e98afdc1546eb266a7a15fe"},"orders":[],"cart":[],"username":"GUEST72","role":"guest"}
+{"_id":{"$oid":"5e995275ae95b32904d4772c"},"orders":[],"cart":[],"username":"GUEST86","role":"guest"}
+{"_id":{"$oid":"5e99605ddcbd0929624d0bd4"},"orders":[],"cart":[],"username":"GUEST94","role":"guest"}
+{"_id":{"$oid":"5e9961cfa18a57296ad61514"},"orders":[],"cart":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":1}],"username":"GUEST92","role":"guest"}
+{"_id":{"$oid":"5e9972881c6a502a06a6fa4e"},"orders":[],"cart":[],"username":"GUEST41","role":"guest"}
+{"_id":{"$oid":"5e997e2c49b5e32b225a4a14"},"orders":[],"cart":[],"username":"GUEST25","role":"guest"}
+{"_id":{"$oid":"5e997f9649b5e32b225a4a15"},"orders":[],"cart":[],"username":"GUEST79","role":"guest"}
+{"_id":{"$oid":"5e998cae2fcb4a2b6c8ee746"},"orders":[],"cart":[],"username":"GUEST67","role":"guest"}
+{"_id":{"$oid":"5e99ac0c5b1cde2c1924f4af"},"orders":[],"cart":[{"productId":"1010015","productName":"Lettore LEF","price":1000,"discount":0,"quantity":2},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":5}],"username":"GUEST2","role":"guest"}
+{"_id":{"$oid":"5e99ac165b1cde2c1924f4b0"},"orders":[],"cart":[],"username":"GUEST83","role":"guest"}
+{"_id":{"$oid":"5e99b5db9f55122c86aa696c"},"orders":[],"cart":[],"username":"GUEST19","role":"guest"}
+{"_id":{"$oid":"5e9af73d811c97320b5e9825"},"orders":[],"cart":[],"username":"GUEST46","role":"guest"}
+{"_id":{"$oid":"5e9af7df811c97320b5e9826"},"orders":[],"cart":[],"username":"GUEST95","role":"guest"}
+{"_id":{"$oid":"5e9afc8d811c97320b5e9827"},"orders":[],"cart":[],"username":"GUEST13","role":"guest"}
+{"_id":{"$oid":"5ea7e5d62a9e8104490de094"},"orders":[],"cart":[],"username":"GUEST15","role":"guest"}
+{"_id":{"$oid":"5ea7ea578be1cd046237c920"},"orders":[],"cart":[],"username":"GUEST5","role":"guest"}
+{"_id":{"$oid":"5ea7f656c5267104a26bffeb"},"orders":[],"cart":[],"username":"GUEST39","role":"guest"}
+{"_id":{"$oid":"5ea7ff17436ba10557f4a883"},"orders":[],"cart":[],"username":"GUEST29","role":"guest"}
+{"_id":{"$oid":"5ea80a49af48c706368da4dd"},"orders":[],"cart":[],"username":"GUEST28","role":"guest"}
+{"_id":{"$oid":"5ea824e52c354e0750badace"},"orders":[],"cart":[],"username":"GUEST82","role":"guest"}
+{"_id":{"$oid":"5ea826137fc284075ef5e8f8"},"orders":[],"cart":[{"productName":"Selettore Monete","price":650,"discount":0,"quantity":5},{"productId":"1010015","productName":"Lettore LEF","price":1000,"discount":0,"quantity":2},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":3},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2}],"username":"GUEST49","role":"guest"}
+{"_id":{"$oid":"5ea826870be0090761fb247f"},"orders":[],"cart":[{"productName":"Selettore Monete","price":650,"discount":0,"quantity":5},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":3},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2}],"username":"GUEST62","role":"guest"}
+{"_id":{"$oid":"5ea827a50a6916076bf49195"},"orders":[],"cart":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":5}],"username":"GUEST87","role":"guest"}
+{"_id":{"$oid":"5ea827fcfdf983076f65ca3f"},"orders":[],"cart":[],"username":"GUEST70","role":"guest"}
+{"_id":{"$oid":"5ea8291f41a3e2078bd15a12"},"orders":[],"cart":[],"username":"GUEST75","role":"guest"}
+{"_id":{"$oid":"5ea829b4f7c368078c5511f9"},"orders":[],"cart":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":5},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2}],"username":"GUEST81","role":"guest"}
+{"_id":{"$oid":"5ea82a977e7b81078e3b4e9e"},"orders":[],"cart":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":5},{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2}],"username":"GUEST42","role":"guest"}
+{"_id":{"$oid":"5ea82ae737a3990790d9d857"},"orders":[],"cart":[{"productId":"400123400","productName":"Lettore CCS","price":1200,"discount":0,"quantity":1},{"productId":"1001","productName":"Stampante","price":600,"discount":0,"quantity":1},{"productId":"1002","productName":"Preincasso","price":500,"discount":20,"quantity":1}],"username":"GUEST55","role":"guest"}
+{"_id":{"$oid":"5ea939e43e79b20af7c76568"},"orders":[],"cart":[],"username":"GUEST21","role":"guest"}
+{"_id":{"$oid":"5ea93a928088d80b1158bca2"},"orders":[],"cart":[],"username":"GUEST85","role":"guest"}
+{"_id":{"$oid":"5ea943213454530bcf537935"},"orders":[],"cart":[],"username":"GUEST32","role":"guest"}
+{"_id":{"$oid":"5ea945f83454530bcf537936"},"orders":[],"cart":[],"username":"GUEST97","role":"guest"}
+{"_id":{"$oid":"5ea950403454530bcf537937"},"orders":[],"cart":[],"username":"GUEST61","role":"guest"}
+{"_id":{"$oid":"5ea95c6d43f6490d40075c3b"},"orders":[],"cart":[],"username":"GUEST10","role":"guest"}
+{"_id":{"$oid":"5ea963025a74af0d72f1e686"},"orders":[],"cart":[],"username":"GUEST59","role":"guest"}
+{"_id":{"$oid":"5ea97b84882b710e1d91d9ec"},"orders":[],"cart":[],"username":"GUEST18","role":"guest"}
+{"_id":{"$oid":"5ea97c60882b710e1d91d9ed"},"orders":[],"cart":[],"username":"GUEST57","role":"guest"}
+{"_id":{"$oid":"5ea98013882b710e1d91d9f3"},"orders":[],"cart":[],"username":"GUEST4","role":"guest"}
+{"_id":{"$oid":"5ea98034882b710e1d91d9f4"},"orders":[],"cart":[],"username":"GUEST98","role":"guest"}
+{"_id":{"$oid":"5ea987db882b710e1d91d9f5"},"orders":[],"cart":[],"username":"GUEST26","role":"guest"}
+{"_id":{"$oid":"5eaa8c364d27470368d5fb3c"},"orders":[],"cart":[{"productId":"1010015","productName":"Lettore LEF","price":1000,"discount":0,"quantity":1}],"username":"GUEST77","role":"guest"}
+{"_id":{"$oid":"5eaa8ec34d27470368d5fb3d"},"orders":[],"cart":[],"username":"GUEST64","role":"guest"}
+{"_id":{"$oid":"5eaa8f574d27470368d5fb3e"},"orders":[],"cart":[],"username":"GUEST11","role":"guest"}
+{"_id":{"$oid":"5eaa9c844d27470368d5fb40"},"orders":[],"cart":[{"productId":"400123400","productName":"Lettore CCS","price":1200,"discount":0,"quantity":3}],"username":"GUEST51","role":"guest"}
+{"_id":{"$oid":"5ead89d37f42ae114c43329c"},"orders":[],"cart":[],"username":"GUEST69","role":"guest"}
+{"_id":{"$oid":"5ebfac3d03057e073bff3e24"},"orders":[],"cart":[],"username":"GUEST60","role":"guest"}
+{"_id":{"$oid":"5ebfb0cc03057e073bff3e25"},"orders":[],"cart":[],"username":"GUEST24","role":"guest"}
+{"_id":{"$oid":"5ebfb34e03057e073bff3e26"},"orders":[],"cart":[],"username":"GUEST16","role":"guest"}
+{"_id":{"$oid":"5ebfd93403057e073bff3e2e"},"orders":[],"cart":[],"username":"GUEST12","role":"guest"}
+{"_id":{"$oid":"5ebfdb4b03057e073bff3e2f"},"orders":[],"cart":[],"username":"GUEST35","role":"guest"}
+{"_id":{"$oid":"5ebff6788f4ebe0db19a134f"},"orders":[],"cart":[],"username":"GUEST1","role":"guest"}
+{"_id":{"$oid":"5ec007eb8f4ebe0db19a1350"},"orders":[],"cart":[{"productId":"4001","productName":"Alimentatore Ventilato","price":900,"discount":20,"quantity":1}],"username":"GUEST44","role":"guest"}
+{"_id":{"$oid":"5ec0f01eb03c4b14d4e4a676"},"orders":[],"cart":[],"favorites":[],"username":"GUEST14","role":"guest"}
+{"_id":{"$oid":"5ec0f0e4b03c4b14d4e4a677"},"orders":[],"cart":[],"favorites":[],"username":"GUEST31","role":"guest"}
+{"_id":{"$oid":"5ed7fae04767dd06449af7e1"},"orders":[],"cart":[],"favorites":[],"username":"GUEST40","role":"guest"}
+{"_id":{"$oid":"5ed7fb764767dd06449af7e2"},"orders":[],"cart":[],"favorites":[],"username":"admin","password":"21232f297a57a5a743894a0e4a801fc3","name":"Name","surname":"Surname","company":"Company","mail":"test@test.com","phone":123456789,"role":"admin","discount":0}
+{"_id":{"$oid":"5ed7fb994767dd06449af7e3"},"orders":[{"products":[{"productId":"1001","productName":"Stampante","price":600,"discount":0,"quantity":5},{"productId":"4001","productName":"Alimentatore Ventilato","price":900,"discount":20,"quantity":2}],"discount":30,"date":{"$date":"2020-06-03T19:38:15.875Z"}}],"cart":[],"favorites":[{"productId":"4040015","productName":"Selettore Monete","price":650,"discount":20,"quantity":2},{"productId":"1010015","productName":"Lettore LEF","price":1000,"discount":0,"quantity":1}],"username":"user","password":"ee11cbb19052e40b07aac0ca060c23ee","name":"Name","surname":"Surname","company":"Company","mail":"user@test.com","phone":987654321,"role":"user","discount":30}
