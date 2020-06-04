@@ -40,14 +40,14 @@
             <td>{{ element.price}} ‎€</td>
             <td>{{ element.quantity}}</td>
             <td>{{ element.quantity * element.price}} €</td>
-            <td><a>{{ userDiscount }}%</a><a v-if="element.discount > 0"> + {{ element.discount }}%</a></td>
-            <td>{{ (element.price * element.quantity)-((element.price * element.quantity)*(element.discount + userDiscount))/100}} €</td>
+            <td><a v-if="element.discount > 0">{{ element.discount }}% + </a><a>{{ userDiscount }}%</a></td>
+            <td>{{ (((element.price - ((element.price * element.discount) / 100)) - (((element.price - (((element.price * element.discount) / 100))) * userDiscount) / 100)) * element.quantity) | round }} €</td>
             <td><button class="tableCart" href="#" @click.prevent="removeFromCart(element)" style="width:auto;">Rimuovi dal Carrello</button></td>
         </tr>
       </table>
       
       <div style="padding-left:16px">
-          <h2>Totale: {{ total }} €</h2>
+          <h2>Totale: {{ total | round }} €</h2>
           <button v-if="!empty" @click="confirmOrder" class="confButton" href="#" style="width:auto;">Conferma</button>
       </div>
     </div>

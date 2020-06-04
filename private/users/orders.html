@@ -20,9 +20,9 @@
         <div v-for="element in orders" style="padding-top: 40px">
             <p><strong>Data: {{ element.date}}</strong></p>
             <div v-for="product in element.products">
-                <p><strong>Codice: </strong>{{ product.productId}} | <strong>Prodotto: </strong>{{ product.productName}} | <strong>Quantità: </strong>{{ product.quantity}} | <strong>Prezzo: </strong>{{ (product.price * product.quantity)-((product.price * product.quantity)*(product.discount + element.discount)) / 100}} ‎€</p>
+                <p><strong>Codice: </strong>{{ product.productId}} | <strong>Prodotto: </strong>{{ product.productName}} | <strong>Quantità: </strong>{{ product.quantity}} | <strong>Prezzo: </strong>{{ (((product.price - ((product.price * product.discount) / 100)) - (((product.price - (((product.price * product.discount) / 100))) * element.discount) / 100)) * product.quantity) | round}} ‎€</p>
             </div>
-            <p><strong>Totale: {{ getTotal(element) }} €</strong></p>
+            <p><strong>Totale: {{ getTotal(element) | round }} €</strong></p>
         </div>
     </div>
     </div>

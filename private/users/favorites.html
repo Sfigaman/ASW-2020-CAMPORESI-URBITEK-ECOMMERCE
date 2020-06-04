@@ -28,10 +28,8 @@
           <th>Codice</th>
           <th>Nome</th>
           <th>Prezzo Unitario</th>
-          <th>Quantità</th>
-          <th>Totale</th>
           <th>Sconto</th>
-          <th>Totale Scontato</th>
+          <th>Prezzo Scontato</th>
           <th>Rimozione da Preferiti</th>
           <th>Aggiunta a Carrello</th>
         </tr>
@@ -39,10 +37,8 @@
             <td>{{ element.productId}}</td>
             <td>{{ element.productName}}</td>
             <td>{{ element.price}} ‎€</td>
-            <td>{{ element.quantity}}</td>
-            <td>{{ element.quantity * element.price}} €</td>
-            <td><a>{{ userDiscount }}%</a><a v-if="element.discount > 0"> + {{ element.discount }}%</a></td>
-            <td>{{ (element.price * element.quantity)-((element.price * element.quantity)*(element.discount + userDiscount))/100}} €</td>
+            <td><a v-if="element.discount > 0">{{ element.discount }}% + </a><a>{{ userDiscount }}%</a></td>
+            <td>{{ (((element.price - ((element.price * element.discount) / 100)) - (((element.price - (((element.price * element.discount) / 100))) * userDiscount) / 100)) * element.quantity) | round }} €</td>
             <td><button class="tableCart" href="#" @click.prevent="removeFromFavorites(element)" style="width:auto;">Rimuovi dai Preferiti</button></td>
             <td><button class="tableCart" href="#" @click.prevent="addToCart(element)" style="width:auto;">Aggiungi al Carrello</button></td>
         </tr>
