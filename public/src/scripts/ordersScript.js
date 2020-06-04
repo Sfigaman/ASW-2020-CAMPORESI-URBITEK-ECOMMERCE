@@ -16,7 +16,7 @@ var app = new Vue({
         getTotal: function (order) {
                 var tot = 0;
                 order.products.forEach(function(element) {
-                    tot = tot + ((element.price * element.quantity)-((element.price * element.quantity)*(element.discount + order.discount)) / 100 );
+                    tot = tot + (((element.price - ((element.price * element.discount) / 100)) - (((element.price - (((element.price * element.discount) / 100))) * order.discount) / 100)) * element.quantity);
                 });
                 return tot;
         },
@@ -24,6 +24,11 @@ var app = new Vue({
             this.listProducts();
         }
     },
+	filters: {
+		round: function (value) {
+			return Math.round(value * Math.pow(10, 2)) / Math.pow(10, 2);
+		}
+	},
     mounted() {
         this.init();
     }

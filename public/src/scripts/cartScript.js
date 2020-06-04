@@ -25,7 +25,7 @@ var app = new Vue({
                 if (response.data.discount !== undefined) {
                     this.userDiscount = response.data.discount;
                     response.data.cart.forEach(function(element) {
-                        tot = tot + ((element.price * element.quantity)-((element.price * element.quantity)*(element.discount + response.data.discount)) / 100 );
+                        tot = tot + (((element.price - ((element.price * element.discount) / 100)) - (((element.price - (((element.price * element.discount) / 100))) * response.data.discount) / 100)) * element.quantity);
                     });
                     } else {
                         response.data.cart.forEach(function(element) {
@@ -98,6 +98,11 @@ var app = new Vue({
             this.listProducts();
         }
     },
+	filters: {
+		round: function (value) {
+			return Math.round(value * Math.pow(10, 2)) / Math.pow(10, 2);
+		}
+	},
     mounted() {
         this.init();
     }
