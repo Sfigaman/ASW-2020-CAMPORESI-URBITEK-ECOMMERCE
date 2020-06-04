@@ -622,10 +622,11 @@ exports.create_order = function(req, res) {
         user.cart.forEach(function(item) {
             var newString = '\nCodice Prodotto: ' + item.productId + '\nNome Prodotto: ' + item.productName + '\nPrezzo Unitario: ' + item.price + '€\nSconto: ' + item.discount + '%\nQuantità: ' + item.quantity + '\n';
             stringa = stringa + newString;
-            var totaleParziale = (item.price * item.quantity)-((item.price * item.quantity) * (sconto + item.discount) / 100);
+            var totaleParziale = (((item.price - ((item.price * item.discount) / 100)) - (((item.price - (((item.price * item.discount) / 100))) * sconto) / 100)) * item.quantity);
             totale = totale + totaleParziale;
             stringa = stringa + 'Totale Parziale: ' + totaleParziale + '€\n';
         });
+		totale = Math.round(totale * Math.pow(10, 2)) / Math.pow(10, 2);
             stringa = stringa + '\nTotale: ' + totale + '€';
         //console.log(stringa);
         var mailOptions = {
