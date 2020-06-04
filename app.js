@@ -6,6 +6,8 @@ var cron = require("node-cron");
 var Routes = require(__dirname + "/routes.js");
 var mongoose = require('mongoose');
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+
 mongoose.connect('mongodb://localhost/test', {
     useNewUrlParser: true,
     useFindAndModify: false,
