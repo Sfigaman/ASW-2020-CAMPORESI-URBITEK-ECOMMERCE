@@ -480,7 +480,7 @@ exports.modify_favorites = function(req, res) {
             user.favorites.forEach(function(item) {
                 if (item.productId == req.body.productId) {
                     var name = item.productName;
-                    var newQuantity = quantity + item.quantity * 1;
+                    var newQuantity = quantity;
                     updated++;
                     User.updateOne({
                     username: user.username
